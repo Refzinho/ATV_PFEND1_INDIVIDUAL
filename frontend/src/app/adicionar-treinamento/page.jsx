@@ -18,6 +18,9 @@ function adicionar(event){
     categoria: categoria,
     duracao: duracao
 }
+
+setTreinamentos([...treinamentos, novoTreinamento]);
+
 console.log(novoTreinamento);
 }
 
@@ -32,6 +35,16 @@ console.log(novoTreinamento);
                 <input type="text" name="duracao" placeholder="Duração" value={duracao} onChange={(du) => setDuracao(du.target.value)}/>
                 <button type="submit">Adicionar Treinamento</button>
             </form>
+            <div>
+                {treinamentos.map(treinamento => (
+                    <div key={treinamento.titulo}>
+                        <h2>{treinamento.titulo}</h2>
+                        <p>{treinamento.descricao}</p>
+                        <p>{treinamento.categoria}</p>
+                        <p>{treinamento.duracao}</p>
+                    </div>
+                ))}
+            </div>
         </main>
     );
 
